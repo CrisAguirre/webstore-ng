@@ -2,5 +2,5 @@
 // Formato: https://tu-servidor.railway.app/api/productos/
 export const environment = {
   production: true,
-  apiUrl: 'https://REEMPLAZAR-CON-URL-RAILWAY.railway.app/api/productos/'
+  apiUrl: 'webstore-nodeexpress-production.up.railway.app'
 };
