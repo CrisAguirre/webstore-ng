@@ -1,1 +1,28 @@
-<router-outlet></router-outlet>
+<!-- Navbar Neon -->
+<nav class="navbar navbar-expand-lg navbar-dark pb-3 pt-3 mb-4" style="background-color: var(--bg-card); border-bottom: 1px solid var(--primary-neon); box-shadow: 0 0 10px rgba(0,243,255,0.2);">
+  <div class="container d-flex justify-content-between align-items-center">
+    <!-- Brand / Logo -->
+    <a class="navbar-brand navbar-brand-neon" routerLink="/">
+      <img src="assets/logo.png" alt="Abarrotes Cris Logo" style="height: 40px; border-radius: 5px; box-shadow: 0 0 5px var(--primary-neon);">
+      <span class="ms-2" style="color: var(--primary-neon); font-weight: bold; text-shadow: 0 0 5px var(--primary-neon);">ABARROTES CRIS</span>
+    </a>
+
+    <!-- Menu Links -->
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex flex-row gap-4 align-items-center">
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Tienda</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/admin/dashboard" routerLinkActive="active">Hundaysboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="neon-btn text-decoration-none" routerLink="/login" routerLinkActive="active">Login Admin</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Content -->
+<div class="container main-content">
+  <router-outlet></router-outlet>
+</div>

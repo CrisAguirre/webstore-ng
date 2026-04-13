@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center align-items-center mt-5">
+  <div class="col-md-6 col-lg-4 neon-box">
+    <h3 class="neon-title text-center mb-4">Acceso Admin</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="username" class="form-label text-white">Usuario</label>
+        <input type="text" id="username" class="form-control neon-input" formControlName="username" placeholder="CrisTroy87">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label text-white">Contraseña</label>
+        <input type="password" id="password" class="form-control neon-input" formControlName="password" placeholder="***">
+      </div>
+      <button type="submit" class="neon-btn w-100 mt-3" [disabled]="loginForm.invalid">Ingresar al Hundaysboard</button>
+    </form>
+  </div>
+</div>

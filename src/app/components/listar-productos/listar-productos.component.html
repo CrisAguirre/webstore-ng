@@ -1,19 +1,19 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-            <div class="card">
-                <div class="card-body text-center">
-                    <span class="titulo">LISTADO DE PRODUCTOS</span>
-                    <button class="btn btn-success float-end" routerLink="/crear-producto">NUEVO</button>
-                    <table class="table table-striped mt-3">
-                        <thead>
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card neon-box bg-transparent border-0">
+                <div class="card-body">
+                    <span class="neon-title fs-3 mb-4 d-inline-block">LISTADO DE PRODUCTOS</span>
+                    <button class="neon-btn float-end mb-4" routerLink="/admin/crear-producto">NUEVO</button>
+                    <table class="table table-borderless table-hover mt-3" style="color: white;">
+                        <thead style="border-bottom: 2px solid var(--primary-neon);">
                           <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Categoría</th>
-                            <th scope="col">Ubicación</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col"></th>
+                            <th scope="col" class="text-white">Código</th>
+                            <th scope="col" class="text-white">Nombre</th>
+                            <th scope="col" class="text-white">Categoría</th>
+                            <th scope="col" class="text-white">Ubicación</th>
+                            <th scope="col" class="text-white">Precio</th>
+                            <th scope="col" class="text-white"></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -23,12 +23,12 @@
                             <td>{{producto.categoria}}</td>
                             <td>{{producto.ubicacion}}</td>
                             <td>{{producto.precio | currency}}</td>
-                            <td><i [routerLink]="['/editar-producto', producto._id]" class="text-primary fa-solid fa-pen-to-square"></i></td>
-                            <td><i (click)="eliminarProducto(producto._id)" class="text-danger fa-solid fa-trash"></i></td>
+                            <td><i [routerLink]="['/admin/editar-producto', producto._id]" class="text-primary fa-solid fa-pen-to-square" style="cursor:pointer; text-shadow: 0 0 5px blue;"></i></td>
+                            <td><i (click)="eliminarProducto(producto._id)" class="text-danger fa-solid fa-trash" style="cursor:pointer; text-shadow: 0 0 5px red;"></i></td>
                           </tr>
                         </tbody>
                       </table>
-                      <h5 *ngIf="listProductos.length == 0" style="text-align: start; margin-top: 10px">No hay productos para mostrar!</h5>
+                      <h5 *ngIf="listProductos.length == 0" class="text-muted mt-4">No hay productos para mostrar!</h5>
                 </div>
             </div>
         </div>
