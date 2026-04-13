@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  url = 'http://localhost:4000/api/auth/';
+  // Construye la URL de auth dinámicamente según el entorno
+  url = environment.apiUrl.replace('productos/', 'auth/');
 
   constructor(private http: HttpClient, private router: Router) { }
 
