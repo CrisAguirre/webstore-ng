@@ -8,7 +8,7 @@
   --primary-neon: #00f3ff;
   --text-main: #ffffff;
   --text-muted: #8b9bb4;
-  --border-neon: 0 0 10px rgba(0, 243, 255, 0.5), inset 0 0 5px rgba(0, 243, 255, 0.3);
+  --border-neon: 0 0 15px rgba(0, 243, 255, 0.7), inset 0 0 10px rgba(0, 243, 255, 0.4);
 }
 
 body {
@@ -17,13 +17,26 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   min-height: 100vh;
+  position: relative;
+  z-index: 0;
 }
 
 /* Utils Neon */
+@keyframes neon-pulse {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 243, 255, 0.5), inset 0 0 2px rgba(0, 243, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.9), inset 0 0 12px rgba(0, 243, 255, 0.6);
+    border-color: rgba(255, 255, 255, 1);
+  }
+}
+
 .neon-box {
   background-color: var(--bg-card);
-  border: 1px solid var(--primary-neon);
-  box-shadow: var(--border-neon);
+  border: 1px solid white;
+  animation: neon-pulse 1.5s infinite alternate;
   border-radius: 8px;
   padding: 20px;
 }
@@ -32,20 +45,20 @@ body {
   color: var(--primary-neon) !important;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 0 0 5px var(--primary-neon);
+  text-shadow: 0 0 8px var(--primary-neon);
 }
 
 .neon-btn {
   background: transparent;
   color: var(--primary-neon);
-  border: 1px solid var(--primary-neon);
+  border: 1px solid white;
   padding: 10px 20px;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
   border-radius: 4px;
   transition: all 0.3s ease;
-  box-shadow: 0 0 5px var(--primary-neon);
+  animation: neon-pulse 1.5s infinite alternate;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
@@ -53,21 +66,23 @@ body {
 
 .neon-btn:hover {
   background: var(--primary-neon);
-  color: var(--bg-color);
-  box-shadow: 0 0 15px var(--primary-neon), inset 0 0 10px var(--bg-color);
+  color: var(--bg-color) !important;
+  border-color: var(--primary-neon);
+  animation: none;
+  box-shadow: 0 0 25px var(--primary-neon), inset 0 0 15px var(--bg-color);
 }
 
 .neon-input {
   background-color: rgba(0, 243, 255, 0.05);
-  border: 1px solid rgba(0, 243, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   color: white;
   transition: all 0.3s ease;
 }
 
 .neon-input:focus {
   background-color: rgba(0, 243, 255, 0.1);
-  border-color: var(--primary-neon);
-  box-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+  border-color: white;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.8);
   outline: none;
 }
 
@@ -78,15 +93,62 @@ body {
 /* Global inputs resetting bootstrap styles */
 .form-control {
   background-color: rgba(0, 243, 255, 0.05) !important;
-  border: 1px solid rgba(0, 243, 255, 0.3) !important;
+  border: 1px solid rgba(255,255,255,0.5) !important;
   color: white !important;
 }
 
 .form-control:focus {
-  box-shadow: 0 0 8px rgba(0, 243, 255, 0.6) !important;
-  border-color: var(--primary-neon) !important;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.8) !important;
+  border-color: white !important;
 }
 
-.table {
+/* Fixing bootstrap table white backgrounds */
+.table, .table > tbody > tr > td, .table > tbody > tr > th, .table > thead > tr > th {
+  background-color: transparent !important;
   color: white !important;
-}
+  border-color: rgba(0, 243, 255, 0.3) !important;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: rgba(0, 243, 255, 0.1) !important;
+}
+
+/* Nordic Animated Background */
+.nordic-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rune {
+  position: absolute;
+  color: #e0e0e0;
+  font-size: 3rem;
+  opacity: 0;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #e0e0e0; /* reflective silver texture */
+  animation: rune-blink 4s infinite alternate ease-in-out;
+}
+
+@keyframes rune-blink {
+  0%, 100% { opacity: 0; transform: scale(0.9); }
+  50% { opacity: 0.15; transform: scale(1.1); }
+}
+
+.r1 { top: 10%; left: 15%; animation-delay: 0s; }
+.r2 { top: 30%; left: 80%; animation-delay: 1.2s; }
+.r3 { top: 70%; left: 10%; animation-delay: 2.1s; }
+.r4 { top: 80%; left: 85%; animation-delay: 0.5s; }
+.r5 { top: 50%; left: 50%; animation-delay: 3s; }
+.r6 { top: 20%; left: 40%; animation-delay: 1.5s; }
+.r7 { top: 85%; left: 45%; animation-delay: 2.8s; }
+.r8 { top: 40%; left: 20%; animation-delay: 0.8s; }
+.r9 { top: 60%; left: 75%; animation-delay: 1.9s; }
+.r10 { top: 15%; left: 65%; animation-delay: 0.3s; }
+.r11 { top: 90%; left: 25%; animation-delay: 2.5s; }
+.r12 { top: 5%; left: 90%; animation-delay: 3.5s; }

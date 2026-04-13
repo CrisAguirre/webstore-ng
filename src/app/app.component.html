@@ -1,5 +1,21 @@
+<!-- Nordic Animated Background -->
+<div class="nordic-bg">
+  <span class="rune r1">ᚠ</span>
+  <span class="rune r2">ᚢ</span>
+  <span class="rune r3">ᚦ</span>
+  <span class="rune r4">ᚨ</span>
+  <span class="rune r5">ᚱ</span>
+  <span class="rune r6">ᚲ</span>
+  <span class="rune r7">ᚷ</span>
+  <span class="rune r8">ᚹ</span>
+  <span class="rune r9">ᚺ</span>
+  <span class="rune r10">ᚾ</span>
+  <span class="rune r11">ᛁ</span>
+  <span class="rune r12">ᛃ</span>
+</div>
+
 <!-- Navbar Neon -->
-<nav class="navbar navbar-expand-lg navbar-dark pb-3 pt-3 mb-4" style="background-color: var(--bg-card); border-bottom: 1px solid var(--primary-neon); box-shadow: 0 0 10px rgba(0,243,255,0.2);">
+<nav class="navbar navbar-expand-lg navbar-dark pb-3 pt-3 mb-4" style="background-color: var(--bg-card); border-bottom: 1px solid white; box-shadow: 0 0 10px rgba(0,243,255,0.8);">
   <div class="container d-flex justify-content-between align-items-center">
     <!-- Brand / Logo -->
     <a class="navbar-brand navbar-brand-neon" routerLink="/">
@@ -13,10 +29,13 @@
         <a class="nav-link text-white" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Tienda</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/admin/dashboard" routerLinkActive="active">Hundaysboard</a>
+        <a class="nav-link text-white" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authService.isLoggedIn()">
         <a class="neon-btn text-decoration-none" routerLink="/login" routerLinkActive="active">Login Admin</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
+        <a class="neon-btn text-decoration-none" style="cursor:pointer;" (click)="authService.logout()">Cerrar Sesión</a>
       </li>
     </ul>
   </div>
