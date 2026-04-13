@@ -157,4 +157,27 @@ body {
 .r9 { top: 60%; left: 75%; animation-delay: 1.9s; }
 .r10 { top: 15%; left: 65%; animation-delay: 0.3s; }
 .r11 { top: 90%; left: 25%; animation-delay: 2.5s; }
-.r12 { top: 5%; left: 90%; animation-delay: 3.5s; }
+.r12 { top: 5%; left: 90%; animation-delay: 3.5s; }
+
+/* Lightning Effect */
+.lightning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background-color: transparent;
+  animation: lightning-flash 10s infinite;
+}
+
+@keyframes lightning-flash {
+  0%, 91% { opacity: 0; background-color: transparent; }
+  92% { opacity: 0.6; background-color: rgba(220, 245, 255, 0.2); }
+  93% { opacity: 0; background-color: transparent; }
+  94% { opacity: 0.9; background-color: rgba(220, 245, 255, 0.4); }
+  95% { opacity: 0; background-color: transparent; }
+  96% { opacity: 0.8; background-color: rgba(220, 245, 255, 0.3); }
+  97%, 100% { opacity: 0; background-color: transparent; }
+}
