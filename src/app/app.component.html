@@ -20,7 +20,7 @@
     <!-- Brand / Logo -->
     <a class="navbar-brand navbar-brand-neon" routerLink="/">
       <img src="assets/logo.png" alt="Abarrotes Cris Logo" style="height: 40px; border-radius: 5px; box-shadow: 0 0 5px var(--primary-neon);">
-      <span class="ms-2" style="color: var(--primary-neon); font-weight: bold; text-shadow: 0 0 5px var(--primary-neon);">ABARROTES CRIS</span>
+      <span class="ms-2" style="color: white; font-weight: bold; text-shadow: 0 0 5px var(--primary-neon);">ABARROTES CRIS</span>
     </a>
 
     <!-- Menu Links -->
@@ -34,9 +34,6 @@
       <li class="nav-item" *ngIf="!authService.isLoggedIn()">
         <a class="neon-btn text-decoration-none" routerLink="/login" routerLinkActive="active">Login Admin</a>
       </li>
-      <li class="nav-item" *ngIf="authService.isLoggedIn()">
-        <a class="neon-btn text-decoration-none" style="cursor:pointer;" (click)="authService.logout()">Cerrar Sesión</a>
-      </li>
     </ul>
   </div>
 </nav>
@@ -44,4 +41,9 @@
 <!-- Content -->
 <div class="container main-content">
   <router-outlet></router-outlet>
+</div>
+
+<!-- Floating Logout Button -->
+<div *ngIf="authService.isLoggedIn()" style="position: fixed; bottom: 20px; left: 20px; z-index: 1000;">
+  <a class="neon-btn text-decoration-none" style="cursor:pointer; padding: 5px 12px; font-size: 0.8rem; border: 1px solid white;" (click)="authService.logout()">Cerrar Sesión</a>
 </div>
